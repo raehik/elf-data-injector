@@ -1,0 +1,134 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           elf-data-injector
+version:        0.1.0
+synopsis:       TODO
+description:    Please see README.md.
+category:       TODO
+homepage:       https://github.com/raehik/elf-data-injector#readme
+bug-reports:    https://github.com/raehik/elf-data-injector/issues
+author:         Ben Orchard
+maintainer:     Ben Orchard <thefirstmuffinman@gmail.com>
+license:        MIT
+build-type:     Simple
+tested-with:
+    TODO
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/raehik/elf-data-injector
+
+library
+  exposed-modules:
+      Common
+      Elf
+      Replacement
+      Replacement.Patch
+      Testing
+  other-modules:
+      Paths_elf_data_injector
+  hs-source-dirs:
+      src
+  default-extensions:
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      InstanceSigs
+      MultiParamTypeClasses
+      PolyKinds
+      LambdaCase
+      DerivingStrategies
+      StandaloneDeriving
+      DeriveAnyClass
+      DeriveGeneric
+      DeriveDataTypeable
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      DeriveLift
+      ImportQualifiedPost
+      StandaloneKindSignatures
+      DerivingVia
+      RoleAnnotations
+      TypeApplications
+      DataKinds
+      TypeFamilies
+      TypeOperators
+      BangPatterns
+      GADTs
+      DefaultSignatures
+      RankNTypes
+      UndecidableInstances
+      MagicHash
+      ScopedTypeVariables
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , base
+    , binrep
+    , bytepatch
+    , bytestring
+    , cereal
+    , containers
+    , text
+    , yaml
+  default-language: Haskell2010
+
+executable bytepatch
+  main-is: Main.hs
+  other-modules:
+      Paths_elf_data_injector
+  hs-source-dirs:
+      app
+  default-extensions:
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      InstanceSigs
+      MultiParamTypeClasses
+      PolyKinds
+      LambdaCase
+      DerivingStrategies
+      StandaloneDeriving
+      DeriveAnyClass
+      DeriveGeneric
+      DeriveDataTypeable
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      DeriveLift
+      ImportQualifiedPost
+      StandaloneKindSignatures
+      DerivingVia
+      RoleAnnotations
+      TypeApplications
+      DataKinds
+      TypeFamilies
+      TypeOperators
+      BangPatterns
+      GADTs
+      DefaultSignatures
+      RankNTypes
+      UndecidableInstances
+      MagicHash
+      ScopedTypeVariables
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base
+    , binrep
+    , bytepatch
+    , bytestring
+    , cereal
+    , containers
+    , elf-data-injector
+    , text
+    , yaml
+  default-language: Haskell2010

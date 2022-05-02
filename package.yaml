@@ -1,0 +1,91 @@
+name: elf-data-injector
+version: 0.1.0
+synopsis: TODO
+description: Please see README.md.
+extra-source-files:
+- README.md
+- CHANGELOG.md
+category: TODO
+tested-with: TODO
+license: MIT
+#license-file: LICENSE # TODO
+
+github: raehik/elf-data-injector
+maintainer: Ben Orchard <thefirstmuffinman@gmail.com>
+author: Ben Orchard
+
+# TODO 2022-04-22 This will be supported eventually - I looked just now, and
+# there was a fix 10 hours ago! But it'll take a while to trickle down into an
+# hpack release, and then that release in Stack.
+language: GHC2021
+
+# mostly Alexis King's 2018 recommended defaults
+# (most can be replaced with GHC 9.2's GHC2021 language extension
+default-extensions:
+# essential
+- EmptyCase
+- FlexibleContexts
+- FlexibleInstances
+- InstanceSigs
+- MultiParamTypeClasses
+- PolyKinds
+- LambdaCase
+
+# deriving-related
+- DerivingStrategies
+- StandaloneDeriving
+- DeriveAnyClass
+- DeriveGeneric
+- DeriveDataTypeable
+- DeriveFunctor
+- DeriveFoldable
+- DeriveTraversable
+- DeriveLift
+
+# essential syntax but too recent
+- ImportQualifiedPost # 8.10
+- StandaloneKindSignatures # 8.10
+- DerivingVia # 8.6
+
+# less essential but still gimmes
+- RoleAnnotations
+- TypeApplications
+- DataKinds
+- TypeFamilies
+- TypeOperators
+- BangPatterns
+- GADTs
+- DefaultSignatures
+- RankNTypes
+
+# extra
+- UndecidableInstances # honestly fine but...
+- MagicHash # pretty much syntactic, but too weird
+- ScopedTypeVariables # probs dangerous to have as default
+
+dependencies:
+- base
+- binrep
+- bytestring
+- text
+- containers
+- aeson
+- yaml
+- bytepatch
+- cereal
+
+library:
+  source-dirs: src
+  ghc-options:
+  - -Wall
+
+executables:
+  bytepatch:
+    source-dirs: app
+    main: Main.hs
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - elf-data-injector
